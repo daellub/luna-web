@@ -1,43 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#020308" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="L.U.N.A - Arcane glass console with STARGLOW aesthetic"
     />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <title>L.U.N.A | STARGLOW CONSOLE</title>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Pretendard Font -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <style>
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2")
+          format("woff2");
+        font-weight: 100;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2")
+          format("woff2");
+        font-weight: 200;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2")
+          format("woff2");
+        font-weight: 300;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2")
+          format("woff2");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2")
+          format("woff2");
+        font-weight: 500;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2")
+          format("woff2");
+        font-weight: 600;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2")
+          format("woff2");
+        font-weight: 700;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2")
+          format("woff2");
+        font-weight: 800;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Pretendard";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2")
+          format("woff2");
+        font-weight: 900;
+        font-display: swap;
+      }
+
+      /* Alexana 같은 디스플레이 폰트 (파일 넣어두고 경로만 맞추면 됨) */
+      @font-face {
+        font-family: "LunaDisplay";
+        src: url("/fonts/Alexana.ttf") format("truetype");
+        font-weight: 400;
+        font-display: swap;
+      }
+    </style>
+
+    <!-- Google Fonts (Cinzel를 서브 디스플레이용으로) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* 메인 컬러 토큰 */
+        --bg-main: #020308;
+        --accent-gold: #e7d7b0;
+        --accent-soft: #9fdffb;
+
+        /* 글라스 토큰 */
+        --glass-bg: rgba(255, 255, 255, 0.02);
+        --glass-border: rgba(255, 255, 255, 0.14);
+        --glass-radius: 18px;
+        --glass-blur: 18px;
+
+        /* 폰트 토큰 */
+        --font-display: "LunaDisplay", "Cinzel", system-ui, sans-serif;
+        --font-ui: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui,
+          sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        background-color: var(--bg-main);
+        color: #f5f5f7;
+        font-family: var(--font-ui);
+        min-height: 100vh;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* 별/성운 + 비네트 */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: -40px;
+        pointer-events: none;
+        z-index: -2;
+        background-image:
+          radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.08) 0, transparent 45%),
+          radial-gradient(circle at 80% 80%, rgba(159, 223, 251, 0.12) 0, transparent 50%),
+          radial-gradient(circle at 10% 80%, rgba(231, 215, 176, 0.14) 0, transparent 55%);
+        background-color: var(--bg-main);
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: -40px;
+        pointer-events: none;
+        z-index: -1;
+        background: radial-gradient(circle at center, transparent 0, #020308 70%);
+      }
+
+      #root {
+        min-height: 100vh;
+        position: relative;
+        z-index: 0;
+      }
+    </style>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>JavaScript를 활성화해야 L.U.N.A 콘솔을 사용할 수 있습니다.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
